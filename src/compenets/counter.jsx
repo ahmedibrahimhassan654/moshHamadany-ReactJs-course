@@ -8,12 +8,29 @@ class Counter extends Component {
     render() {
 
         return (
-            <div>
+            <div className="row">
+                <div className="col-1">
+                     <span className={this.getBadgeClasses()}>{this.counterFormate()}</span>
 
-                <span className={this.getBadgeClasses()}>{this.counterFormate()}</span>
+
+                </div>
+                <div className="col">
+
                 <button className='btn btn-secondary btn-sm'
                     onClick={() => this.props.onIncrement(this.props.counter)}>
-                    increment
+                    +
+                </button>
+
+
+                <button 
+                className="btn btn-primary btn-sm m-2"
+                onClick={() => this.props.onDecrement(this.props.counter)}
+                disabled={this.props.counter.value===0?"disapled":""}
+                    
+                    
+                    >
+                        -
+                        
                 </button>
 
                 <button
@@ -22,9 +39,11 @@ class Counter extends Component {
                     Delete
                 </button>
 
+                </div>
 
-                <button className="btn btn-info btn-sm m-2"
-                    onClick={()=>this.props.onDecrement(this.props.counter)}>decrement</button>
+
+                
+
 
             </div>
 
